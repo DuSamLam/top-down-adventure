@@ -9,10 +9,18 @@ public class PlayerController : MonoBehaviour
 
     public GameObject key;
 
+    public static PlayerController instance;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        if(instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+        GameObject.DontDestroyOnLoad(gameObject);
     }
 
     // Update is called once per frame
@@ -53,7 +61,7 @@ public class PlayerController : MonoBehaviour
         if(collision.gameObject.tag.Equals("Door"))
         {
             Debug.Log("hit");
-            SceneManager.LoadScene("indoor"); //access SceneManager class for LoadScene function
+            SceneManager.LoadScene(1); //access SceneManager class for LoadScene function
         }
 
         if(collision.gameObject.tag.Equals("Key"))
@@ -63,5 +71,14 @@ public class PlayerController : MonoBehaviour
             hasKey = true; //player has the key now
 
         }
+
+        if (collision.gameObject.tag.Equals("exit"))
+        {
+            Debug.Log("hit");
+            SceneManager.LoadScene(0); //access SceneManager class for LoadScene function
+        }
+
+        
+        
     }
 }
