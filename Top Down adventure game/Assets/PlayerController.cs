@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
         if(collision.gameObject.tag.Equals("Key"))
         {
             Debug.Log("obtained key");
-            key.SetActive(false); //key disapears
+            //key.SetActive(false); //key disapears
             hasKey = true; //player has the key now
 
         }
@@ -76,6 +76,12 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("hit");
             SceneManager.LoadScene(0); //access SceneManager class for LoadScene function
+        }
+
+        if(collision.gameObject.tag.Equals("exit 2") && hasKey == true)//needs to satisy both conditions to enter end door
+        {
+            Debug.Log("hit");
+            SceneManager.LoadScene(2);
         }
 
         
