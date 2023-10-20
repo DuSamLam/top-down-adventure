@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     public float speed = .01f;
     public bool hasKey = false;
 
-    public GameObject key;
+    public GameObject Key;
 
     public static PlayerController instance;
 
